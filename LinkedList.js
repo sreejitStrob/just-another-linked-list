@@ -8,7 +8,7 @@ export default class LinkedList {
     }
 
     insertAtHead(value) {
-       
+
         const newNode = new LinkedListNode(value, this.head);
 
         if (this.head == null) {
@@ -35,14 +35,25 @@ export default class LinkedList {
 
     //insert at tail
     insertAtTail(value) {
-       this.tail.next = new LinkedListNode(value , null)
-       this.length++;
+        if (this.head == null) {
+            this.insertAtHead(value);
+            return 
+        }
+        const newTailNode = new LinkedListNode(value, null)
+        this.tail.next = newTailNode
+        this.tail = this.tail.next
+        this.length++;
     }
 
 
     //insert at index
-    insertAtIndex (value,index) {
-        
+    insertAtIndex(value, index) {
+        if (index < 0 || index > this.length)
+            return null
+
+        let prev = this.getvalueAtIndex(index - 1)
+        prev.next = new LinkedListNode(value, prev.next)
+        this.length++;
     }
 
 
@@ -56,6 +67,15 @@ export default class LinkedList {
 
 
     //print all
+    getAllValue() {
+        let output = ''
+        let current = this.head
+        for (let i = 0; i < this.length; i++) {
+            output = `${output}${current.value} -> `
+            current = current.next;
+        }
+        console.log(`${output}null`)
+    }
 
     //convert to array
 
