@@ -1,0 +1,28 @@
+{
+  "name": "just-another-linked-list",
+  "version": "1.0.0",
+  "description": "A simple linked list implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sreejitStrob/just-another-linked-list.git"
+  },
+  "keywords": [
+    "linked",
+    "list",
+    "linked-list"
+  ],
+  "author": "Sreejit",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/sreejitStrob/just-another-linked-list/issues"
+  },
+  "homepage": "https://github.com/sreejitStrob/just-another-linked-list#readme",
+  "devDependencies": {
+    "jest": "^29.3.1"
+  }
+}
