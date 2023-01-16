@@ -1,2 +1,2 @@
 # just-another-linked-list
-A simple linked list implemenetation
+A simple linked list implementation
