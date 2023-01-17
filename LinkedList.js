@@ -7,8 +7,17 @@ export default class LinkedList {
         this.length = 0
     }
 
-    insertAtHead(value) {
+    //create from array
+    create(data) {
 
+        for (let x in data) {
+            this.insertAtTail(data[x]);
+        }
+        return
+    }
+
+    //insert at head
+    insertAtHead(value) {
         const newNode = new LinkedListNode(value, this.head);
 
         if (this.head == null) {
@@ -37,7 +46,7 @@ export default class LinkedList {
     insertAtTail(value) {
         if (this.head == null) {
             this.insertAtHead(value);
-            return 
+            return
         }
         const newTailNode = new LinkedListNode(value, null)
         this.tail.next = newTailNode
@@ -58,12 +67,30 @@ export default class LinkedList {
 
 
     //remove at index
+    removeAtIndex(index) {
+        if (index < 0 || index > this.length)
+            return null
+
+        let prev = this.getvalueAtIndex(index - 1)
+        prev.next = prev.next.next
+        this.length--;
+    }
 
 
     //remove from head
+    removeFromHead() {
+        this.head = this.head.next
+        this.length--;
+    }
 
 
     //remove from tail
+    pop() {
+        let prev = this.getvalueAtIndex(this.length - 2);
+        prev.next = null
+        this.length--;
+        return
+    }
 
 
     //print all
@@ -78,6 +105,16 @@ export default class LinkedList {
     }
 
     //convert to array
+    toArray() {
+        let current = this.head
+        let linkedListToArray = []
+        for (let i = 0; i < this.length; i++) {
+            let output = current.value
+            linkedListToArray.push(output) 
+            current = current.next;     
+        }
+        return linkedListToArray
+    }
 
 
 
